@@ -1,0 +1,145 @@
+*{
+    box-sizing: border-box;
+}
+body,html{
+    height: 100vh;
+    margin: 0px;
+    color: white;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    background-color: #121212;
+    justify-content: space-between;
+}
+#navbar{
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: clamp(250px, 20%, 350px);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#navbar ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+#navbar ul li{
+    width: 80%;
+    padding: 20px;
+    background-color: #353535;
+    cursor: pointer;
+    transition: background .3s;
+    box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.2);
+}
+#navbar ul li:hover{
+    background-color: #121212;
+}
+#navbar ul [active]{
+    background-color: #121212;
+}
+#navbar img{
+    height: 10%;
+}
+main{
+    height: 100%;
+    width: 100%;
+}
+h1{
+    font-family: var(--primaryfont);
+    padding-left: 2.5em;
+    width: 100%;
+}
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#app{
+    background-color:#1e1e1e;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    /* margin-left: 2.5em; */
+    height: 85%;
+}
+#horarioContainer{
+    display: flex;
+}
+#horarios{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: var(--secondaryfont);
+    flex-wrap: wrap;
+}
+#horarios div{
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: clamp(40px, 8%, 80px); */
+}
+.horarioItem{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: clamp(40px, 8%, 80px);
+    outline: 1px solid #353535;
+    padding: 10px;
+    margin-right:20px;
+    cursor:pointer
+}
+#horarios .horarioItem:hover,
+[active].horarioItem{
+    background-color: #131313;
+}
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    width: 200px;
+    height: clamp(40px, 8%, 80px);
+}
+#action{
+    background-color: #353535;
+    width: 30%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0px 7px 8px 0px rgb(0 0 0 / 20%);
+}
+#horarioContainer{
+    padding: 10px;
+    height: 100%;
+    width: 80%;
+}
+#action h3{
+    width: 100%;
+    text-align: center;
+
+}
+.horarioView{
+    background-color: red;
+}
+.horarioView .header{
+    width: 100%;
+}
+#selectedHorario{
+    display: flex;
+    background-color: yellow;
+}
