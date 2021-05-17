@@ -1,0 +1,12 @@
+{
+    "name": "ricardo/grade-horarios-info",
+    "authors": [
+        {
+            "name": "Ricardo Cenci Fabris",
+            "email": "ricardocencifabris@gmail.com"
+        }
+    ],
+    "require": {
+        "rbdwllr/reallysimplejwt": "^4.0"
+    }
+}
