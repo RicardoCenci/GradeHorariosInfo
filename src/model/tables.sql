@@ -53,16 +53,17 @@ CREATE TABLE `User` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO User(name,email,password) values('admin','default@default.com','$2y$11$xQ1AcUEOTeG6VDRXm33EmObq35yHoDwE0lGT5IbSyJssdP9Aqbkpa')
 
 INSERT INTO Professor(nome,dataNasc) VALUES 
 ("Thyago Salva",'2001-12-15'),
 ("Iva Pra",'1995-04-12');
 
 INSERT INTO Materia(nome) VALUES
-("Programação Web"),
-("Interface Web"),
-("Banco de dados"),
-("Algoritimos");
+("Programação Web",'rgb(124,32,12)'),
+("Interface Web",'rgb(13,255,34'),
+("Banco de dados",'rgb(86,93,20'),
+("Algoritimos",'rgb(57,34,87');
 
 
 INSERT INTO MateriaLista(professor_id, materia_id) VALUES

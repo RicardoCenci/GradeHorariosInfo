@@ -18,11 +18,11 @@
             <div style="height: 17%;">
             <form method="POST" id="form" action='<?=url('')?>'>
                 <div class="login-form-group">
-                    <input class="form-login-input" name='lgn' type="text" id="lgn" required value='Ricardo Cenci Fabris'>
+                    <input class="form-login-input" name='lgn' type="text" id="lgn" required value='admin'>
                     <label class="form-login-input-label">Usuario</label>
                 </div>
                 <div class="login-form-group">
-                    <input class="form-login-input" name='psw' type="password" id="psw" required value='123'>
+                    <input class="form-login-input" name='psw' type="password" id="psw" required value='admin'>
                     <label class="form-login-input-label">Senha</label>
                 </div>
             </form>
