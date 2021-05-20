@@ -42,6 +42,6 @@ export default class Cache{
         sessionStorage.setItem('cardList',JSON.stringify(json))
     }
     getCardList(){
-        return JSON.parse(sessionStorage.getItem('cardList'))
+        return JSON.parse(sessionStorage.getItem('cardList')) ?? []
     }
 }

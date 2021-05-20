@@ -3,7 +3,6 @@
     require pathTo('src/router/Router.php');
 
     $router = new Router();
-    
     //Public Routes
     // $router->get('/',[WebController::class,'home']);
     $router->uses($router);
