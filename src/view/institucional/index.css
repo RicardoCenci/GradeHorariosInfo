@@ -124,6 +124,7 @@ h1{
 #modal{
     position: absolute;
     display: flex;
+    flex-direction: row;
     opacity: 0;
     visibility: hidden;
     transition: visibility .2s, opacity .2s ease-in-out;
@@ -135,15 +136,19 @@ h1{
     z-index: 99;
 
 }
+
 .modalContent fieldset input{
     box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
     border-radius: 5px;
     padding: 10px;
     outline: 0px;
-    width: 20%;
+    width: 25%;
+    text-align: center;
     border: 0;
 }
-
+.modalContent fieldset label{
+    font-size: 1.2em;
+}
 .modalContent fieldset:not(.buttonGroup){
     display: flex;
     width: 80%;
@@ -166,16 +171,39 @@ h1{
 .modalContent{
     background-color: white;
     padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
-    height: 75%;
+    overflow: hidden;
+    height: 75vh;
     color: black;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 30%;
+    width: 30vw;
     border-radius: 5px;
 }
+[active].modalContent #wrapper{
+    transform: translateX(-100%);
+    visibility: hidden;
+}
+[active].modalContent #confirmAction{
+    transform: translateX(-100%);
+    visibility: visible;
+}
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 100%;
+    transition: visibility .3s, transform .2s;
+}
+#confirmAction{
+    position: relative;
+    visibility: hidden;
+    margin-top: calc(-75vh + 30px);
+    margin-left: calc(30vw - 30px);
+    height: 75vh;
+    width: 30vw;
+    transition: visibility .3s, transform .2s;
+}
+
 .buttonGroup{
     display: flex;
     justify-content: center;
@@ -226,3 +254,4 @@ h1{
 .button.cancel:hover{
     text-decoration-line: underline;
 }
+

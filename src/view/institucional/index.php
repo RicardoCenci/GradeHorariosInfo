@@ -26,70 +26,36 @@
                     <p>Entrada</p>
                     <p>Saida</p>
                 </div>
-                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>
-                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>                <div class='gridItem'>
-                    <p>1</p>
-                    <p>12:30</p>
-                    <p>12:30</p>
-                </div>
-
-
             </div>
         </section>
     </main> 
-    <div id="modal">
-        <div class="modalContent">
-            <h1>Horario</h1>
-            <div>
-                <fieldset>
-                    <label for="entranceTime">Entrada</label>
-                    <input type="text" id='entranceTime'>
-                </fieldset>
-                <fieldset>
-                    <label for="exitTime">Saida</label>
-                    <input type="text" id='exitTime'>
-                </fieldset>
-            </div>
-
-            <fieldset class='buttonGroup'> 
+    <div id="modal" active>
+        <div class="modalContent" active>
+            <div id='wrapper'>
+                <h1>Horario</h1>
                 <div>
-                    <button id='save' class='button accept'>Salvar</button>
-                    <button id='cancel' class='button cancel'>Cancelar</button>
+                    <fieldset>
+                        <label for="entranceTime">Entrada</label>
+                        <input type="text" id='entranceTime'>
+                    </fieldset>
+                    <fieldset>
+                        <label for="exitTime">Saida</label>
+                        <input type="text" id='exitTime'>
+                    </fieldset>
                 </div>
-                <button id='delete' class='button danger'>Excluir</button>
-            </fieldset>
-        </div>
+
+                <fieldset class='buttonGroup'> 
+                    <div>
+                        <button id='save' class='button accept'>Salvar</button>
+                        <button id='cancel' class='button cancel'>Cancelar</button>
+                    </div>
+                    <button id='delete' class='button danger'>Excluir</button>
+                </fieldset>
+                </div>
+                <div id="confirmAction">
+                    are u sure?
+                    <button id="cancelConfirm">Leave</button>
+                </div>
+            </div>
     </div>
 </html>

@@ -4,19 +4,35 @@ export default class Modal{
     addBtn = document.getElementById('save')
     deleteBtn = document.getElementById('delete')
     modalRoot = document.getElementById('modal')
-    constructor(){
-        this.cancelBtn.addEventListener('click',this.open)
-        this.addBtn.addEventListener('click',this.open)
-        this.modalRoot.addEventListener('click',this.close)
 
-        this.deleteBtn.addEventListener('click',this.open)
+    entranceInput = document.getElementById('entranceTime')
+    exitInput = document.getElementById('exitTime')
+
+    confirmModalBackButton = document.getElementById('cancelConfirm')
+    contentRoot = document.querySelector('.modalContent')
+    constructor(){
+        this.modalRoot.addEventListener('click',this.close)
+        this.addBtn.addEventListener('click',this.saveAction)
+        this.deleteBtn.addEventListener('click',this.deleteAction)
+
+        this.confirmModalBackButton.addEventListener('click',this.openConfirm)
+
     }
     open = (e)=>{
+        const elementDataset = e.currentTarget.dataset
+        this.entranceInput.value = elementDataset.entrance
+        this.exitInput.value = elementDataset.exit
         this.modalRoot.toggleAttribute('active')
     }
     close = (e)=>{
-        if (e.target.id == 'modal') {
+        if (e.target.id == 'modal' || e.target.id == 'cancel') {
             this.modalRoot.toggleAttribute('active')
         }
+    }
+    deleteAction = (e)=>{
+        this.openConfirm();
+    }
+    openConfirm = (e)=>{
+        this.contentRoot.toggleAttribute('active')
     }
 }
