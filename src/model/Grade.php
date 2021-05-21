@@ -9,7 +9,10 @@ protected $fillable = [
 protected $encrypt = [];
 protected $predeterminated = [];
 public static function getPref(){
-    $result = Grade::selectAll()->data();
+    $result = Grade::selectWhere([
+        'where'=>'id > 1 ORDER BY ordem',
+        'params'=>[]
+    ])->data();
     return $result;
 }
 public function __onInsert(){
