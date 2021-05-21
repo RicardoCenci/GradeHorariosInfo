@@ -170,12 +170,15 @@ h1{
 }
 .modalContent{
     background-color: white;
+    display: grid;
+    grid-template-columns: 99% 1%;
     padding: 30px;
     overflow: hidden;
     height: 75vh;
     color: black;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 30vw;
+    width: clamp(300px, 30vw, 400px);
+    height: clamp(360px, 75vh, 480px);
     border-radius: 5px;
 }
 [active].modalContent #wrapper{
@@ -197,10 +200,8 @@ h1{
 #confirmAction{
     position: relative;
     visibility: hidden;
-    margin-top: calc(-75vh + 30px);
-    margin-left: calc(30vw - 30px);
-    height: 75vh;
-    width: 30vw;
+    width: calc(clamp(300px, 30vw, 400px) - 60px);;
+    height: calc(clamp(360px, 75vh, 480px) - 60px);
     transition: visibility .3s, transform .2s;
 }
 
