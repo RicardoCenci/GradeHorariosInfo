@@ -76,50 +76,12 @@ h1{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     height: 85%;
 }
-#horarios{
-    background-color: red;
-    height: 100%;
-    width: 30%;
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: repeat(auto-fit, clamp(20px,8%,50px));
-}
-#horarios .gridItem:first-child{
-}
-#horarios .gridItem:first-child p{
-    padding: 0;
-}
-.gridItem{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    outline: 1px solid black;
-    cursor: default;
-}
-.gridItem:not(.gridItem:first-child){
-    cursor: pointer;
-}
-.gridItem:hover:not(.gridItem:first-child){
-    background-color: turquoise;
-}
-.gridItem p:nth-child(2n){
-    outline: 1px solid black;
-}
-.gridItem p:nth-child(3n+1){
-    /* background-color: yellow; */
-}
-.gridItem p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding:9px
-}
 [active]#modal{
     visibility: visible;
     opacity: 1;
+}
+[active]#modal .modalContent{
+    transform: scale(1)
 }
 #modal{
     position: absolute;
@@ -137,6 +99,11 @@ h1{
 
 }
 
+.modalContent #ID{
+    box-shadow: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
 .modalContent fieldset input{
     box-shadow: 0px 0px 1px 1px rgb(0, 0, 0);
     border-radius: 5px;
@@ -144,6 +111,8 @@ h1{
     outline: 0px;
     width: 25%;
     text-align: center;
+    font-family: var(--primaryfont);
+    font-size: 1.05em;
     border: 0;
 }
 .modalContent fieldset label{
@@ -171,6 +140,7 @@ h1{
 .modalContent{
     background-color: white;
     display: grid;
+    transform: scale(0.5);
     grid-template-columns: 99% 1%;
     padding: 30px;
     overflow: hidden;
@@ -180,6 +150,7 @@ h1{
     width: clamp(300px, 30vw, 400px);
     height: clamp(360px, 75vh, 480px);
     border-radius: 5px;
+    transition: .2s;
 }
 [active].modalContent #wrapper{
     transform: translateX(-100%);
@@ -188,6 +159,21 @@ h1{
 [active].modalContent #confirmAction{
     transform: translateX(-100%);
     visibility: visible;
+    margin-left: 0;
+}
+.actionIconContainer{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 6px solid #ecc44c;
+}
+.actionIcon{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    color: #ffc107;
+    font-size: 4em;
 }
 #wrapper{
     display: flex;
@@ -200,11 +186,21 @@ h1{
 #confirmAction{
     position: relative;
     visibility: hidden;
-    width: calc(clamp(300px, 30vw, 400px) - 60px);;
+    margin-left: 30px;
+    width: calc(clamp(300px, 30vw, 400px) - 60px);
     height: calc(clamp(360px, 75vh, 480px) - 60px);
     transition: visibility .3s, transform .2s;
+    justify-content:space-between
 }
-
+#confirmAction p{
+    font-family: var(--primaryfont);
+}
+p.actionConfirmSub{
+    font-weight: 600;
+}
+#deletePreview{
+    font-weight: bold;
+}
 .buttonGroup{
     display: flex;
     justify-content: center;
@@ -256,3 +252,126 @@ h1{
     text-decoration-line: underline;
 }
 
+
+#horarios{
+    height: 100%;
+    padding: 30px;
+    padding-left: 10%;
+    width: 100%;
+    columns: 2;
+    column-fill: auto;
+    list-style: none;
+    column-gap: 5em;
+}
+#horarios li{
+    display: grid;
+    margin-bottom: -1px;
+    grid-template-columns: 0.5fr 1fr 1fr;
+    break-inside: avoid-column;
+    list-style-type: none;
+    width: 70%;
+    border: 1px solid rgb(94, 94, 94);
+    grid-template-rows: 1;
+    background: #2d2d2d;
+    box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.2);
+}
+#horarios li p{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+.draggable{
+    user-select: none;
+    transition: transform .3s, top .1s, left .1s;
+}
+[data-mode="edit"]#horarios .draggable{
+    cursor: pointer;
+}
+.draggable:hover{
+    background-color: #121212 !important;
+}
+[data-mode="ordem"]#horarios .draggable{
+    cursor: grab;
+}
+
+[active]#horarios .draggable{
+    cursor: grabbing;
+}
+[active]#horarios .draggable:hover{
+    background-color: #2d2d2d !important;
+}
+.dragged{
+    pointer-events: none;
+    position: absolute;
+    transform: scale(1.1);
+    z-index: 999;
+    cursor: grabbing;
+}
+.placeholder{
+    cursor: grabbing;
+    background: white !important;
+}
+.dumbOption{
+    opacity: 0;
+}
+.actions{
+    background-color: #2d2d2d;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    width: 30%;
+    flex-direction: column;
+}
+.actions fieldset{
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#edit,
+#ordem{
+    background-color: #121212;
+    display:flex;
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+[active]#edit::after,
+[active]#ordem::before,
+[active]#edit::before,
+[active]#ordem::after{
+    opacity: 1;
+}
+#ordem:hover,
+#ordem:focus,
+#edit:hover,
+#edit:focus{
+    box-shadow: 0px 0px 0px 3px #9b9b9b;
+}
+#edit::after,
+#edit::before,
+#ordem::after,
+#ordem::before{
+    position: absolute;
+    opacity: 0;
+    content:'';
+    background:rgb(216, 216, 216);
+    border-radius: 20%;
+    display:block;
+    height: 2px;
+    width: 15px;
+}
+#edit::before,
+#ordem::before{
+    transform: rotate(45deg);
+}
+#edit::after,
+#ordem::after{
+    transform: rotate(-45deg);
+}
