@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS gradehorarios;
+CREATE DATABASE gradehorarios;
+USE gradehorarios;
+
 CREATE TABLE Materia(
     id int PRIMARY KEY AUTO_INCREMENT,
     nome varchar(255),
@@ -53,13 +57,13 @@ CREATE TABLE `User` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO User(name,email,password) values('admin','default@default.com','$2y$11$xQ1AcUEOTeG6VDRXm33EmObq35yHoDwE0lGT5IbSyJssdP9Aqbkpa')
+INSERT INTO User(name,email,password) values('admin','default@default.com','$2y$11$xQ1AcUEOTeG6VDRXm33EmObq35yHoDwE0lGT5IbSyJssdP9Aqbkpa');
 
 INSERT INTO Professor(nome,dataNasc) VALUES 
 ("Thyago Salva",'2001-12-15'),
 ("Iva Pra",'1995-04-12');
 
-INSERT INTO Materia(nome) VALUES
+INSERT INTO Materia(nome,color) VALUES
 ("Programação Web",'rgb(124,32,12)'),
 ("Interface Web",'rgb(13,255,34'),
 ("Banco de dados",'rgb(86,93,20'),
@@ -90,17 +94,18 @@ INSERT INTO horario(nome,turma_id,professor_id,materia_id) values
 
 CREATE TABLE Grade(
     id int PRIMARY KEY AUTO_INCREMENT,
+    ordem int,
     entranceTime TIME,
     exitTime TIME
 );
-INSERT INTO Grade(entranceTime,exitTime) values
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00'),
-('12:10:00','12:20:00');
+INSERT INTO Grade(entranceTime,exitTime,ordem) values
+('12:10:00','12:20:00',1),
+('12:10:00','12:20:00',2),
+('12:10:00','12:20:00',3),
+('12:10:00','12:20:00',4),
+('12:10:00','12:20:00',5),
+('12:10:00','12:20:00',6),
+('12:10:00','12:20:00',7),
+('12:10:00','12:20:00',8),
+('12:10:00','12:20:00',9),
+('12:10:00','12:20:00',10);
